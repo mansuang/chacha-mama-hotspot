@@ -1,49 +1,128 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>mikrotik hotspot > redirect</title>
-<meta http-equiv="refresh" content="2; url=$(link-redirect)">
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="expires" content="-1">
-<style type="text/css">
-<!--
-textarea,input,select {
-	background-color: #FDFBFB;
-	border: 1px #BBBBBB solid;
-	padding: 2px;
-	margin: 1px;
-	font-size: 14px;
-	color: #808080;
-}
+	<title>ชาช่ามาม่า WiFi - กำลังเข้าสู่ระบบ</title>
+	<meta http-equiv="refresh" content="2; url=$(link-redirect)">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<style>
+		.redirect-container {
+			background: rgba(30, 58, 138, 0.9);
+			background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(0, 191, 255, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
+			border-radius: 20px;
+			padding: 40px;
+			text-align: center;
+			color: white;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(10px);
+			max-width: 500px;
+			margin: 50px auto;
+		}
 
-body{ color: #737373; font-size: 12px; font-family: verdana; }
+		.redirect-logo {
+			width: 80px;
+			height: 80px;
+			margin: 0 auto 20px auto;
+			background-image: url('img/logo.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 50%;
+		}
 
-a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
-a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
-img {border: none;}
-td { font-size: 12px; color: #7A7A7A; }
+		.redirect-title {
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 20px;
+			color: #00BFFF;
+		}
 
--->
-</style>
-<script language="JavaScript">
-<!--
-    function startClock() {
-        $(if popup == 'true')
-        open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
-	$(endif)
-	location.href = '$(link-redirect)';
-    }
-//-->
-</script>
+		.redirect-message {
+			font-size: 16px;
+			margin-bottom: 30px;
+			line-height: 1.5;
+		}
+
+		.redirect-link {
+			display: inline-block;
+			background: linear-gradient(45deg, #FF69B4, #00BFFF);
+			color: white;
+			padding: 12px 25px;
+			border-radius: 25px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.redirect-link:hover {
+			background: linear-gradient(45deg, #00BFFF, #FF69B4);
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		.loading-spinner {
+			width: 40px;
+			height: 40px;
+			border: 4px solid rgba(255, 255, 255, 0.3);
+			border-top: 4px solid #FF69B4;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+			margin: 20px auto;
+		}
+
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		@media (max-width: 768px) {
+			.redirect-container {
+				margin: 20px;
+				padding: 30px 20px;
+			}
+
+			.redirect-title {
+				font-size: 20px;
+			}
+
+			.redirect-message {
+				font-size: 14px;
+			}
+		}
+	</style>
+	<script language="JavaScript">
+		<!-
+			function startClock() {
+				$(if popup == 'true')
+				open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
+			$(endif)
+			location.href = '$(link-redirect)';
+			}
+		//-->
+	</script>
 </head>
+
 <body onLoad="startClock()">
-<table width="100%" height="100%">
-<tr>
-	<td align="center" valign="middle">
-	You are logged in
-	<br><br>
-	If nothing happens, click <a href="$(link-redirect)">here</a></td>
-</tr>
-</table>
+	<div class="redirect-container">
+		<div class="redirect-logo"></div>
+		<h1 class="redirect-title">เข้าสู่ระบบสำเร็จ!</h1>
+		<div class="loading-spinner"></div>
+		<p class="redirect-message">
+			ยินดีต้อนรับสู่ CHACHA MAMA WiFi<br>
+			กำลังนำคุณไปยังหน้าเว็บที่ต้องการ...
+		</p>
+		<a href="$(link-redirect)" class="redirect-link">คลิกที่นี่หากไม่มีการเปลี่ยนหน้า</a>
+	</div>
 </body>
+
 </html>

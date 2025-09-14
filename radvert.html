@@ -1,62 +1,117 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>mikrotik hotspot > advertisement</title>
-<meta http-equiv="refresh" content="2; url=$(link-orig)">
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="expires" content="-1">
-<style type="text/css">
-<!--
-textarea,input,select {
-	background-color: #FDFBFB;
-	border: 1px #BBBBBB solid;
-	padding: 2px;
-	margin: 1px;
-	font-size: 14px;
-	color: #808080;
-}
+	<title>ชาช่ามาม่า WiFi - โฆษณา</title>
+	<meta http-equiv="refresh" content="2; url=$(link-orig)">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<style>
+		.advert-container {
+			background: rgba(30, 58, 138, 0.9);
+			background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(0, 191, 255, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
+			border-radius: 20px;
+			padding: 40px;
+			text-align: center;
+			color: white;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(10px);
+			max-width: 500px;
+			margin: 50px auto;
+		}
 
-body{ color: #737373; font-size: 12px; font-family: verdana; }
+		.advert-logo {
+			width: 80px;
+			height: 80px;
+			margin: 0 auto 20px auto;
+			background-image: url('img/logo.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 50%;
+		}
 
-a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
-a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
-img {border: none;}
-td { font-size: 12px; color: #7A7A7A; }
+		.advert-title {
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 20px;
+			color: #FF69B4;
+		}
 
--->
-</style>
-<script language="JavaScript">
-<!--
-    var popup = '';
-    function openOrig() {
-	if (window.focus) popup.focus();
-	location.href = '$(link-orig)';
-    }
-    function openAd() {
-	location.href = '$(link-redirect)';
-    }
-    function openAdvert() {
-	if (window.name != 'hotspot_advert') {
-		popup = open('$(link-redirect)', 'hotspot_advert', '');
-		setTimeout("openOrig()", 1000);
-		return;
-	}
-	setTimeout("openAd()", 1000);
-    }
-//-->
-</script>
+		.advert-message {
+			font-size: 16px;
+			margin-bottom: 30px;
+			line-height: 1.5;
+		}
+
+		.advert-link {
+			display: inline-block;
+			background: linear-gradient(45deg, #FF69B4, #00BFFF);
+			color: white;
+			padding: 12px 25px;
+			border-radius: 25px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.advert-link:hover {
+			background: linear-gradient(45deg, #00BFFF, #FF69B4);
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		@media (max-width: 768px) {
+			.advert-container {
+				margin: 20px;
+				padding: 30px 20px;
+			}
+
+			.advert-title {
+				font-size: 20px;
+			}
+
+			.advert-message {
+				font-size: 14px;
+			}
+		}
+	</style>
+	<script language="JavaScript">
+		<!-
+			var popup = '';
+			function openOrig() {
+			if (window.focus) popup.focus();
+			location.href = '$(link-orig)';
+			}
+			function openAd() {
+			location.href = '$(link-redirect)';
+			}
+			function openAdvert() {
+			if (window.name != 'hotspot_advert') {
+				popup = open('$(link-redirect)', 'hotspot_advert', '');
+				setTimeout("openOrig()", 1000);
+				return;
+			}
+			setTimeout("openAd()", 1000);
+			}
+		//-->
+	</script>
 </head>
+
 <body onLoad="openAdvert()">
-<table width="100%" height="100%">
-<tr>
-	<td align="center" valign="middle">
-	Advertisement.
-	<br><br>
-	If nothing happens, open
-	<a href="$(link-redirect)" target="hotspot_advert">advertisement</a>
-	manually.
-	</td>
-</tr>
-</table>
+	<div class="advert-container">
+		<div class="advert-logo"></div>
+		<h1 class="advert-title">โฆษณา</h1>
+		<p class="advert-message">
+			ขอบคุณที่ใช้บริการ WiFi ของชาช่ามาม่า<br>
+			กำลังแสดงโฆษณา...
+		</p>
+		<a href="$(link-redirect)" target="hotspot_advert" class="advert-link">ดูโฆษณา</a>
+	</div>
 </body>
+
 </html>

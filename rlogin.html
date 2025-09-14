@@ -16,12 +16,64 @@ $(if http-header == "Location")$(link-redirect)$(endif)
     </Redirect>
   </WISPAccessGatewayParam>
 -->
+
 <head>
-<title>...</title>
-<meta http-equiv="refresh" content="0; url=$(link-redirect)">
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="expires" content="-1">
+  <title>ชาช่ามาม่า WiFi - กำลังเปลี่ยนเส้นทาง</title>
+  <meta http-equiv="refresh" content="0; url=$(link-redirect)">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #1E3A8A 0%, #00BFFF 50%, #FF69B4 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .redirect-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(30, 58, 138, 0.9);
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(0, 191, 255, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+    }
+
+    .redirect-logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px auto;
+      background-image: url('img/logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+    }
+
+    .redirect-text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="redirect-message">
+    <div class="redirect-logo"></div>
+    <p class="redirect-text">กำลังเปลี่ยนเส้นทาง...</p>
+  </div>
 </body>
+
 </html>

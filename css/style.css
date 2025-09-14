@@ -4,7 +4,17 @@
          url('../fonts/prompt-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+/* CHACHA MAMA Theme Colors */
+:root {
+    --chacha-cyan: #00BFFF;
+    --chacha-pink: #FF69B4;
+    --chacha-blue: #1E3A8A;
+    --chacha-orange: #FF8C00;
+    --chacha-white: #FFFFFF;
+    --chacha-cream: #FFF8DC;
+    --chacha-dark: #2D3748;
 }
 * {
   box-sizing: border-box;
@@ -14,8 +24,11 @@
 }
 body {
   font-family: 'Prompt', sans-serif;
-  color: white;
-  font-weight: 300;
+  color: var(--chacha-white);
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--chacha-blue) 0%, var(--chacha-cyan) 50%, var(--chacha-pink) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -44,16 +57,16 @@ body :-ms-input-placeholder {
   font-weight: 300;
 }
 .wrapper {
-  background: #50a3a2;
-  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  background: rgba(30, 58, 138, 0.85);
+  background: -webkit-linear-gradient(top left, rgba(30, 58, 138, 0.9) 0%, rgba(0, 191, 255, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
+  background: linear-gradient(to bottom right, rgba(30, 58, 138, 0.9) 0%, rgba(0, 191, 255, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
-  margin-top: -200px;
+  height: 100vh;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 .wrapper.form-success .container h1 {
   -webkit-transform: translateY(85px);
@@ -62,17 +75,38 @@ body :-ms-input-placeholder {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 80px 0;
-  height: 400px;
+  padding: 60px 20px;
+  height: 100vh;
   text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px auto;
+  background-image: url('../img/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .container h1 {
-  font-size: 40px;
+  font-size: 36px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
   -webkit-transition-timing-function: ease-in-put;
           transition-timing-function: ease-in-put;
-  font-weight: 200;
+  font-weight: 600;
+  color: var(--chacha-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
 }
 form {
   padding: 20px 0;
@@ -84,27 +118,33 @@ form input {
      -moz-appearance: none;
           appearance: none;
   outline: 0;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 250px;
-  border-radius: 3px;
-  padding: 10px 15px;
-  margin: 0 auto 10px auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  width: 280px;
+  border-radius: 25px;
+  padding: 15px 20px;
+  margin: 0 auto 15px auto;
   display: block;
   text-align: center;
-  font-size: 18px;
-  color: white;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-  font-weight: 300;
+  font-size: 16px;
+  color: var(--chacha-white);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  font-weight: 400;
+  backdrop-filter: blur(10px);
 }
 form input:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: var(--chacha-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
 }
 form input:focus {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   width: 300px;
-  color: #53e3a6;
+  color: var(--chacha-blue);
+  border-color: var(--chacha-pink);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
 }
 form button {
   -webkit-appearance: none;
@@ -112,20 +152,25 @@ form button {
           appearance: none;
   outline: 0;
   font-family: 'Prompt', sans-serif; 
-  background-color: white;
+  background: linear-gradient(45deg, var(--chacha-pink), var(--chacha-cyan));
   border: 0;
-  padding: 10px 15px;
-  color: #53e3a6;
-  border-radius: 3px;
-  width: 250px;
+  padding: 15px 25px;
+  color: var(--chacha-white);
+  border-radius: 25px;
+  width: 280px;
   cursor: pointer;
   font-size: 18px;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-#http://www.facebook.com/bangboyban
+  font-weight: 600;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 form button:hover {
-  background-color: #f5f7f9;
+  background: linear-gradient(45deg, var(--chacha-cyan), var(--chacha-pink));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 .bg-bubbles {
   position: absolute;
@@ -237,4 +282,104 @@ form button:hover {
     -webkit-transform: translateY(-700px) rotate(600deg);
             transform: translateY(-700px) rotate(600deg);
   }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
+  
+  .container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+  
+  form input {
+    width: 90%;
+    max-width: 280px;
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+  
+  form input:focus {
+    width: 95%;
+    max-width: 300px;
+  }
+  
+  form button {
+    width: 90%;
+    max-width: 280px;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  
+  h4 {
+    font-size: 14px;
+    margin: 10px 0;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 24px;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  form input {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  
+  form button {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+  
+  h4 {
+    font-size: 12px;
+  }
+}
+
+/* Additional styling for better readability */
+h4 {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  margin: 8px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Placeholder styling */
+body ::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+body :-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
+  font-weight: 400;
+}
+
+body ::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
+  font-weight: 400;
+}
+
+body :-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
