@@ -81,24 +81,22 @@
 		}
 	</style>
 	<script language="JavaScript">
-		<!-
-			var popup = '';
-			function openOrig() {
+		var popup = '';
+		function openOrig() {
 			if (window.focus) popup.focus();
 			location.href = '$(link-orig)';
-			}
-			function openAd() {
+		}
+		function openAd() {
 			location.href = '$(link-redirect)';
-			}
-			function openAdvert() {
+		}
+		function openAdvert() {
 			if (window.name != 'hotspot_advert') {
 				popup = open('$(link-redirect)', 'hotspot_advert', '');
 				setTimeout("openOrig()", 1000);
 				return;
 			}
 			setTimeout("openAd()", 1000);
-			}
-		//-->
+		}
 	</script>
 </head>
 
